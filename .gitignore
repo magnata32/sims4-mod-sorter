@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+build/
+dist/
+*.egg-info/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbsdb
+[0_Ativos_Em_Teste]/
+[1_Mods_Seguros]/
+[2_Mods_Suspeitos_Quarentena]/
+[3_Mods_Nao_Testados]/
