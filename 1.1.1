@@ -1,0 +1,75 @@
+# The Sims 4 Mod Manager
+
+Gerenciador inteligente para monitorar, validar e organizar mods do The Sims 4.
+
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/downloads/)
+
+## Status
+
+O projeto evoluiu de uma ferramenta 50/50 para uma base de Mod Manager profissional:
+
+- Banco SQLite em `data/mods.sqlite3`
+- Scanner automatico de `.package` e `.ts4script`
+- Hash SHA256, tamanho, tipo, status, versao e data de validacao
+- Deteccao de duplicados, arquivos vazios e arquivos corrompidos
+- Validador de estrutura para scripts profundos, nomes conflitantes e zips esquecidos
+- Monitor de `lastException.txt`, `lastUIException.txt` e `localthumbcache.package`
+- Dashboard desktop com CustomTkinter quando disponivel
+- Quarentena sem exclusao de arquivos
+- Perfis iniciais: Gameplay, Construcao, Mods de Script e Teste
+- Relatorios HTML, JSON e PDF
+
+O metodo 50/50 antigo continua em `sims4_mod_sorter.py` como legado.
+
+## Como Executar
+
+```bash
+pip install -r requirements.txt
+python app.py
+```
+
+Tambem funciona:
+
+```bash
+python run.py
+```
+
+Ao abrir, o app tenta escanear automaticamente:
+
+```text
+Documents/Electronic Arts/The Sims 4/Mods
+```
+
+Use `Escolher Pasta` se seus mods estiverem em outro local.
+
+## Gerar EXE
+
+```powershell
+.\build_exe.ps1
+```
+
+O executavel sera criado em:
+
+```text
+dist\Sims4ModManager.exe
+```
+
+## Arquitetura
+
+```text
+core/        servicos, modelos, configuracao e quarentena
+database/    persistencia SQLite
+scanner/     scanner automatico de mods
+validator/   regras de estrutura
+monitor/     leitura de logs do jogo
+reports/     HTML, JSON e PDF
+profiles/    perfis de mods
+ui/          dashboard desktop
+tests/       testes automatizados
+```
+
+## Testes
+
+```bash
+python -m unittest discover tests
+```
